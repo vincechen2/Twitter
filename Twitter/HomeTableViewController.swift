@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeTableTableViewController: UITableViewController {
+class HomeTableViewController: UITableViewController  {
     
     var tweetArray = [NSDictionary]()
     var numberOfTweets: Int!
@@ -16,12 +16,23 @@ class HomeTableTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTweets()
+       
+    
+        tableView.estimatedRowHeight = 150
+        tableView.rowHeight = UITableView.automaticDimension
+
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadTweets()
+        
     }
     
     func loadTweets(){
@@ -99,7 +110,7 @@ class HomeTableTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
